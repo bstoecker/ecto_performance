@@ -1,0 +1,2 @@
+defmodule EctoPerformance do
+end
