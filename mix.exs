@@ -14,7 +14,10 @@ defmodule EctoPerformance.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger]]
+    [
+      applications: [:logger, :postgrex, :ecto],
+      mod: {EctoPerformance, []}
+    ]
   end
 
   # Dependencies can be Hex packages:
@@ -27,6 +30,14 @@ defmodule EctoPerformance.Mixfile do
   #
   # Type "mix help deps" for more examples and options
   defp deps do
-    []
+    [
+      {:postgrex, "~> 0.11"},
+      {
+        :ecto, git: "https://github.com/elixir-lang/ecto.git",
+               tag: "v2.0.0-rc.5"
+      },
+      {:remix, "~> 0.0.1", only: :dev},
+      {:poison, "~> 2.0"}
+    ]
   end
 end
