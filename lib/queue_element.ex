@@ -5,7 +5,7 @@ defmodule EctoPerformance.QueueElement do
   alias EctoPerformance.Repo
   @derive [Poison.Encoder]
   defstruct [
-    :timestamp, :offered_calls, :handled_calls, :handlin_time, :call_queue_id
+    :timestamp, :offered_calls, :handled_calls, :handling_time, :call_queue_id
   ]
 
   schema "queue_elements" do
