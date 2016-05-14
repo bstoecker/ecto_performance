@@ -22,12 +22,15 @@ defmodule EctoPerformance.QueueElement do
     Repo.all(query)
   end
 
-  def pipe_query(queue_id) do
+  def by_id(queue_id) do
     QueueElement
     |> where(call_queue_id: ^queue_id)
     |> order_by(:timestamp)
     |> Repo.all
-    |> Poison.encode!
+  end
+
+  def to_json(data) do
+    data |> Poison.encode!
   end
 
   def count(queue_id) do
